@@ -1,6 +1,5 @@
 package org.example;
 
-// Main.java
 public class Main {
     public static void main(String[] args) {
 
@@ -15,5 +14,13 @@ public class Main {
 
         Print.printAccountInfo(account1);
         Print.printAccountInfo(account2);
+
+        BankAccount userBankAccount = new BankAccount("John's Account", 1000.0);
+        User user1 = new User("John", "Doe", "123 Main St", userBankAccount);
+        user1.getBankAccount().deposit(200.0);
+        user1.getBankAccount().withdraw(150.0);
+
+        System.out.println("User Info: " + user1.getFirst_name() + " " + user1.getLast_name() + ", Address: " + user1.getAddress());
+        Print.printAccountInfo(user1.getBankAccount());
     }
 }
